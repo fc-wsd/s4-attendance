@@ -13,7 +13,8 @@ students = {
 def attend(name):
     if name in students:
         students[name] = datetime.now()
-        return
+        attendences = name, students[name]
+        return attendences
     else:
         print("등록되지 않은 수강생입니다.")
         return
