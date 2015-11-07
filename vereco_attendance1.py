@@ -1,4 +1,5 @@
 # 출석부 만들기1, vereco_attendance1.py
+# 2015.11.07
 
 from datetime import datetime
 
