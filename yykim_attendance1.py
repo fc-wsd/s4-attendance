@@ -25,7 +25,7 @@ def printAttendances():
 printAttendances()
 print("")
 
-attend('차경목')
+attend('차경묵')
 print("")
 attend('김용열')
 attend('이준범')

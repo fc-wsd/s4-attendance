@@ -35,7 +35,7 @@ attendance = Attendance()
 attendance.printAttendances()
 
 print("")
-student1 = Student('차경목')
+student1 = Student('차경묵')
 student2 = Student('김용열')
 student3 = Student('이준범')
 
