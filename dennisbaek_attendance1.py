@@ -12,9 +12,7 @@ students = ['김상범',
             ]
 
 attendances = {}
-standard_hour = 0
-standard_min = 0
-standard_sec = 0
+standard_hour, standard_min, standard_sec = 0, 0, 0
 
 #출석 체크, 이름:시간 형태로 dict로 저장
 def attend(name):
@@ -49,11 +47,11 @@ def late_check(name):
         print('you are not in this class')
     elif name in attendances.keys() == False:
         print('you are never attended!')
-    elif attendances[name][3] > standard_hour:
+    elif attendances[name][0] > standard_hour:
         print('{0} is late for class'.format(name))
-    elif attendances[name][4] > standard_min:
+    elif attendances[name][1] > standard_min:
         print('{0} is late for class'.format(name))
-    elif attendances[name][5] > standard_sec:
+    elif attendances[name][2] > standard_sec:
         print('{0} is late for class'.format(name))
     else:
         print('{0} is on time'.format(name))
@@ -69,11 +67,26 @@ def all_late_check(list):
     return None
 
 #test cases!!!
+'''
 print('the text that is shown under here is test!!')
 print('-------------------------------------------')
+attend('유동균')
+attend('권용현')
+attend('김용열')
+attend('유주봉')
+attend('이은상')
+attend('김상범')
+attend('장창완')
+attend('백인기')
+
+'''
+
+
+
+
 
 for i in students:
     attend(i)
 
 for i in students[::2]:
-    attend[i]
+    attend(i)

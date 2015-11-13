@@ -5,16 +5,17 @@ from datetime import datetime
 
 
 class Students:
-    students = ['김상범',
-                '유주봉',
-                '장창완',
-                '이은상',
-                '김용열',
-                '권용현',
-                '유동균',
-                '백인기',
-                ]
-
+    def __init__(self):
+        self.students = [
+                            '김상범',
+                            '유주봉',
+                            '장창완',
+                            '이은상',
+                            '김용열',
+                            '권용현',
+                            '유동균',
+                            '백인기',
+                            ]
 
 class Attendance:
     attendances = {}
