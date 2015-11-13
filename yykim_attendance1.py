@@ -22,7 +22,6 @@ def printAttendances():
         print("{0} : {1}".format(name, date))
     print("------------------")
 
-
 printAttendances()
 print("")
 

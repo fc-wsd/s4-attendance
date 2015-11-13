@@ -46,4 +46,3 @@ attendance.attend(student3)
 
 attendance.printAttendances()
 
-
