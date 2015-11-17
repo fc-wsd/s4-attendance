@@ -1,5 +1,9 @@
-from pprint import pprint
 from datetime import datetime
+
+
+# TODO
+# 시간에 랜덤 변화 주기
+# 로컬 타임존으로 출력하기
 
 
 # 전체 학생 명단
@@ -44,21 +48,26 @@ def init():
 def attend(name, time):
     attendances[name].append(time)
 
+
 def display_students():
+    index = 0
     for k in sorted(attendances):
-        print("{} : ".format(k), end="")
+        index += 1
+        print("{}. {} : ".format(index, k))
         for date in attendances[k]:
-            print("{}".format(str(date)), end=" / ")
+            print("\t{}".format(str(date)))
         print()
 
 
 def main():
     init()
+
     for dt in list_date_lesson:
         for person in students:
             attend(person, dt)
 
-    print("Web Service Development 4기 명단 :")
+    print("\nWeb Service Development 4기 출석부 :")
+    print('*' * 60 + '\n')
     display_students()
 
 
