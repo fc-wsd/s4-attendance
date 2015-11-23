@@ -1,31 +1,39 @@
 from datetime import datetime
-from pprint import pprint
+import random
 
 
-class Student:
+class Student(object):
 
-    def __init__(self, name, display_name):
+    def __init__(self, name, display_name=None):
         self.name = name
         self.display_name = display_name
 
-    def __init__(self, name):
-        self.name = name
-
     def __str__(self):
-        print("{} : {}".format(self.name, self.display_name))
+        if self.display_name is not None:
+            print("Name = {} : Display Name : {}".format(self.name, self.display_name))
+        else:
+            print("Name = {}".format(self.name))
+
 
 
 
 class Attendance:
 
-    def __init__(self):
+    def __init__(self, date):
+        self.date = date
         self.students = []
 
     def attend(self, student):
         self.students.append(student)
 
     def list(self):
-        pprint(self.students)
+
+        print("출석부 ({})".format(self.date))
+        for st in self.students:
+            print("{}. {}".format(self.students.index(st), st.name))
+
+        print("*" * 30)
+        print("")
 
 
 
@@ -37,36 +45,52 @@ LIST_DATE_LESSON = [
 ]
 
 
-#
-# # 출석자 이름과 출석일시를 필수로 저장
-# def init():
-#     for name in students:
-#         attendances[name] = []
-#
-#
-# def attend(name, time):
-#     attendances[name].append(time)
-#
-#
-# def display_students():
-#     index = 0
-#     for k in sorted(attendances):
-#         index += 1
-#         print("{}. {} : ".format(index, k))
-#         for date in attendances[k]:
-#             print("\t{}".format(str(date)))
-#         print()
-
-
 def main():
 
     students = [
-        Student('dennisbaek')
+        Student('dennisbaek'),
+        Student('elee7812'),
+        Student('hannal', 'Kay Cha'),
+        Student('heyyjude'),
+        Student('iamsolucky'),
+        Student('jangchan'),
+        Student('junkwhinger'),
+        Student('PeppyDays'),
+        Student('perterjeong'),
+        Student('plusbeauxjours'),
+        Student('quest4i', 'Myeonggu Sa'),
+        Student('sagan9', 'Sangbeom Kim'),
+        Student('shinjaeuk', 'Shin Jaeuk'),
+        Student('silversky112', 'Wonseok Choi'),
+        Student('sunu-park', 'Sunu Park'),
+        Student('Vereco'),
+        Student('wwwjb')
     ]
+    print("")
+    print("학생 명단 -----")
+    for st in students:
+        # print("{}. name = {} : display name = {}".format(students.index(st), st.name, st.display_name))
+        if st.display_name:
+            print("{}. {} ({})".format(students.index(st), st.name, st.display_name))
+        else:
+            print("{}. {}".format(students.index(st), st.name))
+    print("\n\n\n")
 
-    pprint(students[0])
+    list_attendance = []
+    index = 0
+    for dt in LIST_DATE_LESSON:
+        list_attendance.append(Attendance(dt.date()))
+        user_number = random.randrange(1, 18)
+        random.shuffle(students)
+        for i in range(user_number+1):
+            list_attendance[index].attend(students[i])
 
+        index += 1
 
+    print("")
+    print("출석부 ----")
+    for at in list_attendance:
+        at.list()
 
 
 if __name__ == '__main__':
